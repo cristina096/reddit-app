@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
+import NavBar  from './components/NavBar';
+import Home from './components/Home';
+import React, {useEffect, useState} from 'react';
+import SmallNavBar from './components/SmallNavBar';
 
 function App() {
+
+const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+// const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+const handleResize = () => {
+   setWindowWidth(window.innerWidth);
+  //  setWindowHeight(window.innerHeight);
+}
+
+useEffect( () => {
+    window.addEventListener('resize', handleResize)
+}, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+         {windowWidth > 530 ? <NavBar /> : <SmallNavBar />}
+         <Route path = "/home">
+            <Home windowWidth={windowWidth}/>
+         </Route>
     </div>
   );
 }
