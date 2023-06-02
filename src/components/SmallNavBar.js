@@ -43,15 +43,15 @@ return (
 
         <div className={`small-dropdown-menu ${showCategories ? 'visible' : 'hidden'}`}>
                 <ul className='small-left-items'>
-                    <li><NavLink to = "/home" className = "small-cat-list">Funny</NavLink></li>
-                    <li><NavLink to = "/home" className = "small-cat-list">Animals</NavLink></li>
-                    <li><NavLink to = "/home" className = "small-cat-list">Games</NavLink></li>
+                    <li><NavLink to = "/funny" className = "small-cat-list">Funny</NavLink></li>
+                    <li><NavLink to = "/animals" className = "small-cat-list">Animals</NavLink></li>
+                    <li><NavLink to = "/games" className = "small-cat-list">Games</NavLink></li>
                 </ul>
 
                 <ul className='small-right-items'>
-                    <li><NavLink to = "/home" className = "small-cat-list">News</NavLink></li>
-                    <li><NavLink to = "/home" className = "small-cat-list">Science</NavLink></li>
-                    <li><NavLink to = "/home" className = "small-cat-list">Planet</NavLink></li>
+                    <li><NavLink to = "/news" className = "small-cat-list">News</NavLink></li>
+                    <li><NavLink to = "/science" className = "small-cat-list">Science</NavLink></li>
+                    <li><NavLink to = "/planet" className = "small-cat-list">Planet</NavLink></li>
                 </ul>
         </div>
 

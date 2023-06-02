@@ -6,13 +6,13 @@ function NavBar() {
 
 return (
     <nav className = 'primary-nav'>
-        <NavLink to ="/home">
+        <NavLink to ="/popular">
         <button className = 'reddit-logo' >
             <img src = {process.env.PUBLIC_URL + '/images/reddit.png'} alt = "Reddit logo"/>
         </button>
         </NavLink>
 
-        <NavLink to = "/home" className = "link-style">Home</NavLink>
+        <NavLink to = "/popular" className = "link-style">Home</NavLink>
 
         <div className = "categories">
             <div className="category">
@@ -21,15 +21,15 @@ return (
             </div>
             <div className='dropdown-menu'>
                 <ul className='left-items'>
-                    <li><NavLink to = "/home" className = "cat-list">Funny</NavLink></li>
-                    <li><NavLink to = "/home" className = "cat-list">Animals</NavLink></li>
-                    <li><NavLink to = "/home" className = "cat-list">Games</NavLink></li>
+                    <li><NavLink to = "/funny" className = "cat-list">Funny</NavLink></li>
+                    <li><NavLink to = "/animals" className = "cat-list">Animals</NavLink></li>
+                    <li><NavLink to = "/games" className = "cat-list">Games</NavLink></li>
                 </ul>
 
                 <ul className='right-items'>
-                    <li><NavLink to = "/home" className = "cat-list">News</NavLink></li>
-                    <li><NavLink to = "/home" className = "cat-list">Science</NavLink></li>
-                    <li><NavLink to = "/home" className = "cat-list">Planet</NavLink></li>
+                    <li><NavLink to = "/news" className = "cat-list">News</NavLink></li>
+                    <li><NavLink to = "/science" className = "cat-list">Science</NavLink></li>
+                    <li><NavLink to = "/planet" className = "cat-list">Planet</NavLink></li>
                 </ul>
             </div>
         </div>
