@@ -23,7 +23,7 @@ return loading ? (
     <h2>{error}</h2>
 ) : (
     <div>
-        {posts["kind"]}
+        {posts.kind}
     </div>
 )
 
