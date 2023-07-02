@@ -25,7 +25,7 @@ export const fetchPosts = (pathName) => {
 //this function receives the dispatch method
     return (dispatch) => {
        dispatch(fetchPostsRequest());
-       fetch(`https://www.reddit.com/r/${pathName}/.json?limit=1`)
+       fetch(`https://www.reddit.com/r/${pathName}/.json?sort=new&limit=20&raw_json=1`)
          .then(response => response.json())
          .then(data => {
             const posts = data;

@@ -1,7 +1,9 @@
 import React , {useEffect} from "react";
-import {useSelector, useDispatch, connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import '../styles/RedditPosts.css'
 import { useLocation } from "react-router-dom";
 import { fetchPosts } from "../redux/posts/postsActions";
+import Post from "./Post";
 
 function RedditPosts() {
 
@@ -18,12 +20,14 @@ useEffect( () => {
 }, [dispatch, pathName])
 
 return loading ? ( 
-    <h2>Loading...</h2>
+    <img src = {process.env.PUBLIC_URL + '/images/loading.png'} alt = "Loading.."/>
 ) : error ? (
     <h2>{error}</h2>
 ) : (
-    <div>
-        {posts.kind}
+    <div className = "RedditPosts">
+        {posts.data?.children.map((post) => (
+            <Post post={post.data} key={post.data.author_fullname}/>
+        ))}
     </div>
 )
 

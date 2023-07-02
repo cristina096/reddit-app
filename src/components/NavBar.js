@@ -1,8 +1,17 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import '../styles/NavBar.css'
 import React, {useEffect, useState} from 'react'
 
 function NavBar() {
+
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const url = `/${searchTerm}`; 
+        setSearchTerm(""); 
+        window.location.href = url; 
+      };
 
 return (
     <nav className = 'primary-nav'>
@@ -36,8 +45,8 @@ return (
 
         <div className="search-bar">
             <img src = {process.env.PUBLIC_URL + '/images/magnifier.png'} alt = "Magnifier"/>
-            <form>
-                <input type = "text" name = "search-term" />
+            <form onSubmit={handleSearch}>
+                <input type = "text" name = "search-term"  value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}/>
             </form>
         </div>
     </nav>
