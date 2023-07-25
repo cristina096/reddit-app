@@ -61,3 +61,15 @@
     width: 23px;
 }
 
+.comments {
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.comments-section {
+    padding-bottom: 10px;
+}
+

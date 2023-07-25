@@ -5,10 +5,18 @@ import React, {useEffect, useState} from 'react'
 function SmallNavBar() {
 
 const [showCategories, setShowCategories] = useState(false);
+const [searchTerm, setSearchTerm] = useState("");
 
 const toggleCategories = () => {
     setShowCategories(!showCategories);
 };
+
+const handleSearch = (event) => {
+    event.preventDefault();
+    const url = `/${searchTerm}`; 
+    setSearchTerm(""); 
+    window.location.href = url; 
+  };
 
 const showSearchBar = () => {
    document.getElementsByClassName('small-reddit-logo')[0].style.display = 'none';
@@ -29,7 +37,7 @@ const showMenu = () => {
 
 return (
      <nav className='primary-nav'>
-        <NavLink to ="/home">
+        <NavLink to ="/popular">
         <button className = 'small-reddit-logo' >
             <img src = {process.env.PUBLIC_URL + '/images/reddit.png'} alt = "Reddit logo"/>
         </button>
@@ -61,8 +69,8 @@ return (
         </button>
 
         <div className="small-search-bar">
-            <form>
-                <input className = 'input-search' type = "text" name = "search-term" />
+            <form onSubmit={handleSearch}>
+                <input className = 'input-search' type = "text" name = "search-term" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}/>
             </form>
         </div>
 

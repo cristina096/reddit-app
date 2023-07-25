@@ -1,0 +1,34 @@
+.comment {
+    background-color: #fefae0;
+    margin: auto;
+    border-radius: 10px;
+    width: 90%;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.comment-data {
+    display: flex;
+    justify-content: space-between; 
+} 
+
+.comment-author {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    color: #4f9b43;
+}
+
+.comment-createdDate {
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-right: 20px;
+
+} 
+
+.comment-text {
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+}

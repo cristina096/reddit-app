@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { fetchPosts } from "../redux/posts/postsActions";
 import Post from "./Post";
 
+
 function RedditPosts() {
 
 const posts = useSelector(state => state.posts);
@@ -19,6 +20,7 @@ useEffect( () => {
     dispatch(fetchPosts(pathName));
 }, [dispatch, pathName])
 
+
 return loading ? ( 
     <img src = {process.env.PUBLIC_URL + '/images/loading.png'} alt = "Loading.."/>
 ) : error ? (
@@ -26,7 +28,7 @@ return loading ? (
 ) : (
     <div className = "RedditPosts">
         {posts.data?.children.map((post) => (
-            <Post post={post.data} key={post.data.author_fullname}/>
+            <Post post={post.data} key={post.data.author_fullname} />
         ))}
     </div>
 )
