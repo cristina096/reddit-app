@@ -17,14 +17,22 @@ function Post(props) {
     const permalink = props.post?.permalink;
 
     const [comments, setComments] = useState([]);
-    //const [seeComments, setSeeComments] = useState(false);
+    const [showComments, setShowComments] = useState(false); // State for toggling comments visibility
 
-    const showComments = (permalink) => {
-      fetchComments(permalink).then(comments => { setComments(comments)
-      console.log(comments) }
-      )
-      
-   }  
+   const fetchAndShowComments = (permalink) => {
+       fetchComments(permalink).then(comments => {
+           setComments(comments);
+           setShowComments(true); // Set the state to true to show comments when fetched
+       });
+   }
+
+   const toggleComments = () => {
+       if (showComments) {
+           setComments([]); // Clear comments when hiding the section
+       } else {
+           fetchAndShowComments(permalink);
+       }
+   };
 
 
     return (
@@ -41,20 +49,19 @@ function Post(props) {
                     <p className="nrReact">{likes}</p>
                     <img src = {process.env.PUBLIC_URL + '/images/dislikes.png'} alt = "Dislike" className="reactButtons"/>
                     <p className="nrReact">{dislikes}</p>
-                    <button className="comments" onClick={() => showComments(permalink)}>
+                    <button className="comments" onClick={toggleComments}>
                     <img src = {process.env.PUBLIC_URL + '/images/chat-balloon.png'} alt = "Comments" className="reactButtons"/>
                     </button>
                     <p className="nrReact">{nrComments}</p>
                 </div>
             </div>
 
-
-            {comments && 
+            {showComments && comments.length > 0 && (
             <div className = "comments-section">
                {comments.slice(0,-1).map((comment) => (
-                  <Comment post={comment} key={comment.comment_id} number={comments.length}/>
+                  <Comment post={comment} key={comment.comment_id}/>
                ))}
-            </div>}
+            </div> )}
                
             
        </div>
