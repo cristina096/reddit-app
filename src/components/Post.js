@@ -38,7 +38,7 @@ function Post(props) {
     return (
        <div className = 'redditPost'>
             <h3 className="title">{title}</h3>
-            <h5 className="createdDate">{postDate.getFullYear() + '-' + postDate.getMonth() + '-' + postDate.getDate() + ' ' + postDate.getHours( ) + ':' + postDate.getMinutes()}</h5>
+            <h5 className="createdDate">{postDate.getFullYear() + '-' + (postDate.getMonth()+1) + '-' + postDate.getDate() + ' ' + postDate.getHours() + ':' + postDate.getMinutes()}</h5>
             {text && <p className="text">{text}</p>}
             {image.length >10 && <img src={image} alt='Reddit Post' className="redditImg"/>}
 
